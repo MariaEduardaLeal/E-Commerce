@@ -59,7 +59,7 @@
     .carousel-item.active {
         display: flex;
         opacity: 1;
-        position: relative; 
+        position: relative;
     }
 
     button.prev,
@@ -133,7 +133,10 @@
     <!-- Menu Superior -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Minha Loja</a>
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('home/images/cat_logo2_sem_fundo.png') }}" style="height: 88px;">
+        </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
