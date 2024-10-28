@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Online</title>
+    <link rel="icon" href="{{ asset('home/images/cat_logo2.jpeg') }}" type="image/png">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap JS e dependências -->
@@ -13,11 +15,12 @@
     <!-- Ícones do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* Cores principais */
+
         :root {
-            --roxo: #6a0dad;
+            --roxo: #9a4ded;
             --azul: #4c75a3;
         }
+
 
         /* Estilos do menu */
         .navbar {
@@ -145,7 +148,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('home/images/cat_logo2_sem_fundo.png') }}" style="height: 88px;">
+                <img src="{{ asset('home/images/cat_logo2_sem_fundo.png') }}" style="width: 9%;">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -195,30 +198,30 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/200" alt="Produto 1">
-                    <h5>Produto 1</h5>
+                    <img src="{{ asset('home/images/t-shit1.jpeg') }}" alt="T-Shirt">
+                    <h5>T-Shirt</h5>
                     <p>R$ 50,00</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/200" alt="Produto 2">
-                    <h5>Produto 2</h5>
+                    <img src="{{ asset('home/images/bags.jpeg') }}" alt="Bag">
+                    <h5>Bag</h5>
                     <p>R$ 70,00</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/200" alt="Produto 3">
-                    <h5>Produto 3</h5>
+                    <img src="{{ asset('home/images/dress.png') }}" alt="Dress">
+                    <h5>Dress</h5>
                     <p>R$ 100,00</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/200" alt="Produto 4">
-                    <h5>Produto 4</h5>
-                    <p>R$ 120,00</p>
+                    <img  src="{{ asset('home/images/p10.png') }}" alt="T-Shirt">
+                    <h5>T-Shirt</h5>
+                    <p>R$ 60,00</p>
                 </div>
             </div>
         </div>
