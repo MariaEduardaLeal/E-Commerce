@@ -15,7 +15,6 @@
     <!-- Ícones do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-
         :root {
             --roxo: #9a4ded;
             --azul: #4c75a3;
@@ -65,6 +64,20 @@
             opacity: 1;
             position: relative;
         }
+
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
 
         html,
         body {
@@ -219,13 +232,14 @@
             </div>
             <div class="col-md-3">
                 <div class="product-card">
-                    <img  src="{{ asset('home/images/p10.png') }}" alt="T-Shirt">
+                    <img src="{{ asset('home/images/p10.png') }}" alt="T-Shirt">
                     <h5>T-Shirt</h5>
                     <p>R$ 60,00</p>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="text-center">
