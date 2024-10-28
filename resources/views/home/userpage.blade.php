@@ -7,7 +7,7 @@
     <title>Loja Online</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap JS e dependências -->
+    <!-- Bootstrap JS e dependências -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Ícones do Bootstrap -->
@@ -33,56 +33,66 @@
         .nav-link:hover {
             color: var(--azul) !important;
         }
+
         .carousel {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    height: 400px;
-    background-color: var(--azul);
-}
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            height: 400px;
+            background-color: var(--azul);
+        }
 
-    .carousel-item {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        color: white;
-        text-align: center;
-        font-size: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
+        .carousel-item {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-    .carousel-item.active {
-        display: flex;
-        opacity: 1;
-        position: relative;
-    }
+        .carousel-item.active {
+            display: flex;
+            opacity: 1;
+            position: relative;
+        }
 
-    button.prev,
-    button.next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 1.5rem;
-        z-index: 10; /* Garante que os botões fiquem sobre o conteúdo */
-    }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
-    button.prev {
-        left: 10px;
-    }
+        button.prev,
+        button.next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            /* Garante que os botões fiquem sobre o conteúdo */
+        }
 
-    button.next {
-        right: 10px;
-    }
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
 
 
         /* Seção de produtos */
@@ -110,6 +120,7 @@
             background-color: var(--roxo);
             color: white;
             padding: 40px 0;
+            margin-top: auto;
         }
 
         footer a {
@@ -133,9 +144,9 @@
     <!-- Menu Superior -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('home/images/cat_logo2_sem_fundo.png') }}" style="height: 88px;">
-        </a>
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('home/images/cat_logo2_sem_fundo.png') }}" style="height: 88px;">
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -247,24 +258,24 @@
 
 <script>
     let currentIndex = 0;
-const items = document.querySelectorAll('.carousel-item');
+    const items = document.querySelectorAll('.carousel-item');
 
-function showSlide(index) {
-    items.forEach((item, i) => {
-        item.classList.remove('active');
-        if (i === index) {
-            item.classList.add('active');
-        }
-    });
-}
+    function showSlide(index) {
+        items.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+            }
+        });
+    }
 
-function moveSlide(step) {
-    currentIndex = (currentIndex + step + items.length) % items.length;
+    function moveSlide(step) {
+        currentIndex = (currentIndex + step + items.length) % items.length;
+        showSlide(currentIndex);
+    }
+
+    // Iniciar o carrossel com o primeiro item ativo
     showSlide(currentIndex);
-}
-
-// Iniciar o carrossel com o primeiro item ativo
-showSlide(currentIndex);
-
 </script>
+
 </html>
