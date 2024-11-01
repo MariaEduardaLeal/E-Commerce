@@ -100,19 +100,11 @@
             justify-content: space-around; /* Espaço entre os botões */
         }
 
-        /* Ajustes para os botões */
-        .btn {
-            border: none; /* Remove a borda */
-            padding: 10px 20px; /* Espaçamento interno dos botões */
-            border-radius: 5px; /* Bordas arredondadas */
-            cursor: pointer; /* Muda o cursor para indicar clicável */
-            transition: background-color 0.3s, color 0.3s; /* Transições suaves */
-        }
-
         /* Estilos dos botões */
         .add-to-cart {
             background-color: var(--azul); /* Cor de fundo azul */
             color: white; /* Cor do texto branco */
+            border: 1px solid var(--roxo);
         }
 
         .view-product {
@@ -123,32 +115,26 @@
 
         /* Estilo dos botões durante o hover */
         .add-to-cart:hover {
-            background-color: rgba(255, 255, 255); /* Alterar a cor para um tom escuro de azul */
+            background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo ao passar o mouse */
+            color: var(--azul); /* Mantém a cor do texto roxo */
         }
 
         .view-product:hover {
             background-color: rgba(255, 255, 255, 0.9); /* Mantém um fundo branco, levemente transparente */
+            color: var(--roxo); /* Mantém a cor do texto roxo */
+        }
+
+        /* Adicionando um foco definido para melhorar a acessibilidade */
+        .add-to-cart:focus,
+        .view-product:focus {
+            outline: 2px solid var(--roxo); /* Adiciona um contorno ao focar */
+            outline-offset: 2px; /* Espaçamento do contorno */
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .collapse.show {
             display: block !important; /* Garante que a navbar colapsada seja exibida corretamente */
         }
-
-
-
-        /* Estilo dos botões durante o hover */
-        .add-to-cart:hover {
-            background-color: darken(var(--azul), 10%);
-            /* Escurece o azul no hover */
-        }
-
-        .view-product:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            /* Mantém um fundo branco, levemente transparente */
-        }
-
-
-
 
         html,
         body {
@@ -158,7 +144,7 @@
             flex-direction: column;
         }
 
-        button.prev,
+        /* button.prev,
         button.next {
             position: absolute;
             top: 50%;
@@ -170,7 +156,6 @@
             cursor: pointer;
             font-size: 1.5rem;
             z-index: 10;
-            /* Garante que os botões fiquem sobre o conteúdo */
         }
 
         button.prev {
@@ -179,7 +164,7 @@
 
         button.next {
             right: 10px;
-        }
+        } */
 
 
         /* Seção de produtos */
