@@ -7,13 +7,9 @@
     <title>Loja Online</title>
     <link rel="icon" href="{{ asset('home/images/cat_logo2.jpeg') }}" type="image/png">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS e dependências -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Ícones do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         :root {
             --roxo: #9a4ded;
@@ -90,49 +86,54 @@
         }
 
         .button-container {
-    display: none; /* Oculta os botões inicialmente */
-    position: absolute; /* Para posicionar os botões sobre o cartão */
-    bottom: 10px; /* Distância do fundo do cartão */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta a posição para centralizar */
-    width: 100%; /* Largura total do cartão */
-    z-index: 1; /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
-}
+            display: none; /* Oculta os botões inicialmente */
+            position: absolute; /* Para posicionar os botões sobre o cartão */
+            bottom: 10px; /* Distância do fundo do cartão */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Ajusta a posição para centralizar */
+            width: 100%; /* Largura total do cartão */
+            z-index: 1; /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
+        }
 
-.product-card:hover .button-container {
-    display: flex; /* Exibe os botões ao passar o mouse */
-    justify-content: space-around; /* Espaço entre os botões */
-}
+        .product-card:hover .button-container {
+            display: flex; /* Exibe os botões ao passar o mouse */
+            justify-content: space-around; /* Espaço entre os botões */
+        }
 
-/* Ajustes para os botões */
-.btn {
-    border: none; /* Remove a borda */
-    padding: 10px 20px; /* Espaçamento interno dos botões */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Muda o cursor para indicar clicável */
-    transition: background-color 0.3s, color 0.3s; /* Transições suaves */
-}
+        /* Ajustes para os botões */
+        .btn {
+            border: none; /* Remove a borda */
+            padding: 10px 20px; /* Espaçamento interno dos botões */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Muda o cursor para indicar clicável */
+            transition: background-color 0.3s, color 0.3s; /* Transições suaves */
+        }
 
-/* Estilos dos botões */
-.add-to-cart {
-    background-color: var(--azul); /* Cor de fundo azul */
-    color: white; /* Cor do texto branco */
-}
+        /* Estilos dos botões */
+        .add-to-cart {
+            background-color: var(--azul); /* Cor de fundo azul */
+            color: white; /* Cor do texto branco */
+        }
 
-.view-product {
-    background-color: white; /* Cor de fundo branca */
-    color: var(--roxo); /* Cor do texto roxo */
-    border: 1px solid var(--roxo); /* Borda roxa */
-}
+        .view-product {
+            background-color: white; /* Cor de fundo branca */
+            color: var(--roxo); /* Cor do texto roxo */
+            border: 1px solid var(--roxo); /* Borda roxa */
+        }
 
-/* Estilo dos botões durante o hover */
-.add-to-cart:hover {
-    background-color: rgba(255, 255, 255); /* Alterar a cor para um tom escuro de azul */
-}
+        /* Estilo dos botões durante o hover */
+        .add-to-cart:hover {
+            background-color: rgba(255, 255, 255); /* Alterar a cor para um tom escuro de azul */
+        }
 
-.view-product:hover {
-    background-color: rgba(255, 255, 255, 0.9); /* Mantém um fundo branco, levemente transparente */
-}
+        .view-product:hover {
+            background-color: rgba(255, 255, 255, 0.9); /* Mantém um fundo branco, levemente transparente */
+        }
+
+        .collapse.show {
+            display: block !important; /* Garante que a navbar colapsada seja exibida corretamente */
+        }
+
 
 
         /* Estilo dos botões durante o hover */
@@ -364,7 +365,10 @@
 
 
 </body>
-
+<!-- jQuery (necessário para Bootstrap's JavaScript) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
