@@ -67,16 +67,86 @@
 
         .product-card {
             border: 1px solid #ccc;
+            /* Adiciona uma borda */
             border-radius: 8px;
+            /* Bordas arredondadas */
             padding: 10px;
+            /* Espaçamento interno */
             text-align: center;
+            /* Centraliza o texto */
+            position: relative;
+            /* Para posicionar os botões */
+            overflow: hidden;
+            /* Para ocultar o conteúdo que sai da borda */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Transição suave */
         }
 
         .product-card:hover {
             transform: scale(1.05);
+            /* Aumenta o tamanho do cartão ao passar o mouse */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Sombra ao passar o mouse */
         }
+
+        .button-container {
+    display: none; /* Oculta os botões inicialmente */
+    position: absolute; /* Para posicionar os botões sobre o cartão */
+    bottom: 10px; /* Distância do fundo do cartão */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a posição para centralizar */
+    width: 100%; /* Largura total do cartão */
+    z-index: 1; /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
+}
+
+.product-card:hover .button-container {
+    display: flex; /* Exibe os botões ao passar o mouse */
+    justify-content: space-around; /* Espaço entre os botões */
+}
+
+/* Ajustes para os botões */
+.btn {
+    border: none; /* Remove a borda */
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar clicável */
+    transition: background-color 0.3s, color 0.3s; /* Transições suaves */
+}
+
+/* Estilos dos botões */
+.add-to-cart {
+    background-color: var(--azul); /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+}
+
+.view-product {
+    background-color: white; /* Cor de fundo branca */
+    color: var(--roxo); /* Cor do texto roxo */
+    border: 1px solid var(--roxo); /* Borda roxa */
+}
+
+/* Estilo dos botões durante o hover */
+.add-to-cart:hover {
+    background-color: rgba(255, 255, 255); /* Alterar a cor para um tom escuro de azul */
+}
+
+.view-product:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Mantém um fundo branco, levemente transparente */
+}
+
+
+        /* Estilo dos botões durante o hover */
+        .add-to-cart:hover {
+            background-color: darken(var(--azul), 10%);
+            /* Escurece o azul no hover */
+        }
+
+        .view-product:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Mantém um fundo branco, levemente transparente */
+        }
+
+
 
 
         html,
@@ -184,6 +254,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="#">Cadastrar</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -214,6 +290,10 @@
                     <img src="{{ asset('home/images/t-shit1.jpeg') }}" alt="T-Shirt">
                     <h5>T-Shirt</h5>
                     <p>R$ 50,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -221,6 +301,10 @@
                     <img src="{{ asset('home/images/bags.jpeg') }}" alt="Bag">
                     <h5>Bag</h5>
                     <p>R$ 70,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -228,6 +312,10 @@
                     <img src="{{ asset('home/images/dress.png') }}" alt="Dress">
                     <h5>Dress</h5>
                     <p>R$ 100,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -235,6 +323,10 @@
                     <img src="{{ asset('home/images/p10.png') }}" alt="T-Shirt">
                     <h5>T-Shirt</h5>
                     <p>R$ 60,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
         </div>
