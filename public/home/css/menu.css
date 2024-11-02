@@ -1,0 +1,13 @@
+.navbar {
+    background-color: var(--roxo);
+}
+
+.navbar-brand,
+.nav-link {
+    color: white !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    color: var(--azul) !important;
+}
