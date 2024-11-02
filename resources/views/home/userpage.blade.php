@@ -86,54 +86,75 @@
         }
 
         .button-container {
-            display: none; /* Oculta os botões inicialmente */
-            position: absolute; /* Para posicionar os botões sobre o cartão */
-            bottom: 10px; /* Distância do fundo do cartão */
-            left: 50%; /* Centraliza horizontalmente */
-            transform: translateX(-50%); /* Ajusta a posição para centralizar */
-            width: 100%; /* Largura total do cartão */
-            z-index: 1; /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
+            display: none;
+            /* Oculta os botões inicialmente */
+            position: absolute;
+            /* Para posicionar os botões sobre o cartão */
+            bottom: 10px;
+            /* Distância do fundo do cartão */
+            left: 50%;
+            /* Centraliza horizontalmente */
+            transform: translateX(-50%);
+            /* Ajusta a posição para centralizar */
+            width: 100%;
+            /* Largura total do cartão */
+            z-index: 1;
+            /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
         }
 
         .product-card:hover .button-container {
-            display: flex; /* Exibe os botões ao passar o mouse */
-            justify-content: space-around; /* Espaço entre os botões */
+            display: flex;
+            /* Exibe os botões ao passar o mouse */
+            justify-content: space-around;
+            /* Espaço entre os botões */
         }
 
         /* Estilos dos botões */
         .add-to-cart {
-            background-color: var(--azul); /* Cor de fundo azul */
-            color: white; /* Cor do texto branco */
+            background-color: var(--azul);
+            /* Cor de fundo azul */
+            color: white;
+            /* Cor do texto branco */
             border: 1px solid var(--roxo);
         }
 
         .view-product {
-            background-color: white; /* Cor de fundo branca */
-            color: var(--roxo); /* Cor do texto roxo */
-            border: 1px solid var(--roxo); /* Borda roxa */
+            background-color: white;
+            /* Cor de fundo branca */
+            color: var(--roxo);
+            /* Cor do texto roxo */
+            border: 1px solid var(--roxo);
+            /* Borda roxa */
         }
 
         /* Estilo dos botões durante o hover */
         .add-to-cart:hover {
-            background-color: rgba(255, 255, 255, 0.9); /* Cor de fundo ao passar o mouse */
-            color: var(--azul); /* Mantém a cor do texto roxo */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Cor de fundo ao passar o mouse */
+            color: var(--azul);
+            /* Mantém a cor do texto roxo */
         }
 
         .view-product:hover {
-            background-color: rgba(255, 255, 255, 0.9); /* Mantém um fundo branco, levemente transparente */
-            color: var(--roxo); /* Mantém a cor do texto roxo */
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Mantém um fundo branco, levemente transparente */
+            color: var(--roxo);
+            /* Mantém a cor do texto roxo */
         }
 
         /* Adicionando um foco definido para melhorar a acessibilidade */
         .add-to-cart:focus,
         .view-product:focus {
-            outline: 2px solid var(--roxo); /* Adiciona um contorno ao focar */
-            outline-offset: 2px; /* Espaçamento do contorno */
+            outline: 2px solid var(--roxo);
+            /* Adiciona um contorno ao focar */
+            outline-offset: 2px;
+            /* Espaçamento do contorno */
             background-color: rgba(255, 255, 255, 0.9);
         }
 
         .collapse.show {
-            display: block !important; /* Garante que a navbar colapsada seja exibida corretamente */
+            display: block !important;
+            /* Garante que a navbar colapsada seja exibida corretamente */
         }
 
         html,
@@ -241,11 +262,12 @@
                         <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="#">Login</a>
+                        <a class="nav-link btn" href="{{ route('login-page') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="#">Cadastrar</a>
+                        <a class="nav-link btn " href="{{ route('register-page') }}">Cadastrar</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -352,8 +374,8 @@
 </body>
 <!-- jQuery (necessário para Bootstrap's JavaScript) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');

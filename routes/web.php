@@ -17,3 +17,6 @@ Route::middleware([
 });
 
 route::get('redirect', [HomeController:: class, 'redirect']);
+
+route::get('/login-page', [HomeController::class, 'loginPage'])->name('login-page');
+route::get('/register-page', [HomeController::class, 'registerPage'])->name('register-page');
