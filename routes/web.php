@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 route::get('/', [HomeController:: class, 'index']);
 
@@ -18,8 +20,10 @@ Route::middleware([
     })->name('dashboard');
 });
 
-route::get('redirect', [HomeController:: class, 'redirect']);
+Route::prefix('view')->group(function () {
+    Route::get('redirect', [HomeController::class, 'redirect']);
+    Route::get('login-page', [LoginController::class, 'loginPage'])->name('login-page');
+    Route::get('register-page', [RegisterController::class, 'registerPage'])->name('register-page');
+    Route::get('profile', [LoginController::class, 'profile'])->name('profile');
+});
 
-route::get('/login-page', [HomeController::class, 'loginPage'])->name('login-page');
-route::get('/register-page', [HomeController::class, 'registerPage'])->name('register-page');
-route::get('/profile', [HomeController::class, 'profile'])->name('profile');
