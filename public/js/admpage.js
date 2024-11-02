@@ -45,4 +45,19 @@ $(document).ready(function() {
         alert('Produto cadastrado com sucesso!');
         this.reset(); // Limpa o formulário após o envio
     });
+
+    $('#themeSwitch').change(function() {
+        if (this.checked) {
+            $('body').addClass('bg-gray-100').removeClass('bg-gray-800');
+            $('.dark-bg').addClass('bg-white').removeClass('bg-gray-800');
+            $('.text-white').addClass('text-black').removeClass('text-white');
+            $('.text-gray-700').addClass('text-gray-800').removeClass('text-gray-700');
+        } else {
+            $('body').addClass('bg-gray-800').removeClass('bg-gray-100');
+            $('.dark-bg').addClass('bg-gray-800').removeClass('bg-white');
+            $('.text-white').addClass('text-white').removeClass('text-black');
+            $('.text-gray-700').addClass('text-gray-700').removeClass('text-gray-800');
+        }
+    });
+
 });
