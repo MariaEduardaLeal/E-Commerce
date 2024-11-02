@@ -22,18 +22,4 @@ class HomeController extends Controller
     {
         return view('home.userpage');
     }
-
-    public function loginPage()
-    {
-        return view('auth.login');
-    }
-    public function registerPage()
-    {
-        return view('auth.register');
-    }
-
-    public function profile()
-    {
-        return view('profile.show');
-    }
 }
