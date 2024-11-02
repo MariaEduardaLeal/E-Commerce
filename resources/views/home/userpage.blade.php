@@ -7,13 +7,9 @@
     <title>Loja Online</title>
     <link rel="icon" href="{{ asset('home/images/cat_logo2.jpeg') }}" type="image/png">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS e dependências -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Ícones do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         :root {
             --roxo: #9a4ded;
@@ -67,17 +63,99 @@
 
         .product-card {
             border: 1px solid #ccc;
+            /* Adiciona uma borda */
             border-radius: 8px;
+            /* Bordas arredondadas */
             padding: 10px;
+            /* Espaçamento interno */
             text-align: center;
+            /* Centraliza o texto */
+            position: relative;
+            /* Para posicionar os botões */
+            overflow: hidden;
+            /* Para ocultar o conteúdo que sai da borda */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Transição suave */
         }
 
         .product-card:hover {
             transform: scale(1.05);
+            /* Aumenta o tamanho do cartão ao passar o mouse */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Sombra ao passar o mouse */
         }
 
+        .button-container {
+            display: none;
+            /* Oculta os botões inicialmente */
+            position: absolute;
+            /* Para posicionar os botões sobre o cartão */
+            bottom: 10px;
+            /* Distância do fundo do cartão */
+            left: 50%;
+            /* Centraliza horizontalmente */
+            transform: translateX(-50%);
+            /* Ajusta a posição para centralizar */
+            width: 100%;
+            /* Largura total do cartão */
+            z-index: 1;
+            /* Define um índice z para que os botões fiquem acima do conteúdo do cartão */
+        }
+
+        .product-card:hover .button-container {
+            display: flex;
+            /* Exibe os botões ao passar o mouse */
+            justify-content: space-around;
+            /* Espaço entre os botões */
+        }
+
+        /* Estilos dos botões */
+        .add-to-cart {
+            background-color: var(--azul);
+            /* Cor de fundo azul */
+            color: white;
+            /* Cor do texto branco */
+            border: 1px solid var(--roxo);
+        }
+
+        .view-product {
+            background-color: white;
+            /* Cor de fundo branca */
+            color: var(--roxo);
+            /* Cor do texto roxo */
+            border: 1px solid var(--roxo);
+            /* Borda roxa */
+        }
+
+        /* Estilo dos botões durante o hover */
+        .add-to-cart:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Cor de fundo ao passar o mouse */
+            color: var(--azul);
+            /* Mantém a cor do texto roxo */
+        }
+
+        .view-product:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Mantém um fundo branco, levemente transparente */
+            color: var(--roxo);
+            /* Mantém a cor do texto roxo */
+        }
+
+        /* Adicionando um foco definido para melhorar a acessibilidade */
+        .add-to-cart:focus,
+        .view-product:focus {
+            outline: 2px solid var(--roxo);
+            /* Adiciona um contorno ao focar */
+            outline-offset: 2px;
+            /* Espaçamento do contorno */
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .collapse.show {
+            display: block !important;
+            /* Garante que a navbar colapsada seja exibida corretamente */
+        }
 
         html,
         body {
@@ -87,7 +165,7 @@
             flex-direction: column;
         }
 
-        button.prev,
+        /* button.prev,
         button.next {
             position: absolute;
             top: 50%;
@@ -99,7 +177,6 @@
             cursor: pointer;
             font-size: 1.5rem;
             z-index: 10;
-            /* Garante que os botões fiquem sobre o conteúdo */
         }
 
         button.prev {
@@ -108,7 +185,7 @@
 
         button.next {
             right: 10px;
-        }
+        } */
 
 
         /* Seção de produtos */
@@ -157,7 +234,6 @@
 
 <body>
 
-    <!-- Menu Superior -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -184,10 +260,33 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
                     </li>
+                    @if(auth()->check())
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('profile') }}">Perfil</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                        </ul>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="{{ route('login-page') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="{{ route('register-page') }}">Cadastrar</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
+
 
     <!-- Carrossel CSS Puro -->
     <div class="carousel">
@@ -214,6 +313,10 @@
                     <img src="{{ asset('home/images/t-shit1.jpeg') }}" alt="T-Shirt">
                     <h5>T-Shirt</h5>
                     <p>R$ 50,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -221,6 +324,10 @@
                     <img src="{{ asset('home/images/bags.jpeg') }}" alt="Bag">
                     <h5>Bag</h5>
                     <p>R$ 70,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -228,6 +335,10 @@
                     <img src="{{ asset('home/images/dress.png') }}" alt="Dress">
                     <h5>Dress</h5>
                     <p>R$ 100,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -235,6 +346,10 @@
                     <img src="{{ asset('home/images/p10.png') }}" alt="T-Shirt">
                     <h5>T-Shirt</h5>
                     <p>R$ 60,00</p>
+                    <div class="button-container">
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="btn view-product">Visualizar Produto</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -272,7 +387,10 @@
 
 
 </body>
-
+<!-- jQuery (necessário para Bootstrap's JavaScript) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
