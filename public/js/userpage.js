@@ -16,5 +16,5 @@ function moveSlide(step) {
     showSlide(currentIndex);
 }
 
-// Iniciar o carrossel com o primeiro item ativo
+
 showSlide(currentIndex);
