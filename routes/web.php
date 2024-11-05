@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 
-route::get('/', [HomeController:: class, 'index']);
+route::get('/', [UserController:: class, 'index']);
 
 
 
@@ -21,9 +19,9 @@ Route::middleware([
 });
 
 Route::prefix('view')->group(function () {
-    Route::get('redirect', [HomeController::class, 'redirect']);
-    Route::get('login-page', [LoginController::class, 'loginPage'])->name('login-page');
-    Route::get('register-page', [RegisterController::class, 'registerPage'])->name('register-page');
-    Route::get('profile', [LoginController::class, 'profile'])->name('profile');
+    Route::get('redirect', [UserController::class, 'redirect']);
+    Route::get('login-page', [UserController::class, 'loginPage'])->name('login-page');
+    Route::get('register-page', [UserController::class, 'registerPage'])->name('register-page');
+    Route::get('profile', [UserController::class, 'profile'])->name('profile');
 });
 

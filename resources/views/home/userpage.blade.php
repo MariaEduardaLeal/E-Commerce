@@ -9,10 +9,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('home/css/geral.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/userpage.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/geral.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/userpage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
 
 </head>
 
@@ -93,26 +93,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script>
-    let currentIndex = 0;
-    const items = document.querySelectorAll('.carousel-item');
-
-    function showSlide(index) {
-        items.forEach((item, i) => {
-            item.classList.remove('active');
-            if (i === index) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    function moveSlide(step) {
-        currentIndex = (currentIndex + step + items.length) % items.length;
-        showSlide(currentIndex);
-    }
-
-    // Iniciar o carrossel com o primeiro item ativo
-    showSlide(currentIndex);
-</script>
+<script scr="{{asset('js/userpage.js')}}"></script>
 
 </html>
