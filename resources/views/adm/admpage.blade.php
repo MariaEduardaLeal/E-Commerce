@@ -14,9 +14,16 @@
     <link rel="stylesheet" href="{{ asset('css/adm.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="{{ asset('js/accessibility_menu.js') }}" defer></script>
+    <script src="{{ asset('js/admpage.js') }}"></script>
+
+
 
 </head>
+
 <body>
     @include('includes.navbar')
     @include('includes.accessibility_menu')
@@ -29,7 +36,8 @@
             <input type="text" id="productName" name="name" placeholder="Digite o nome do produto" required />
 
             <label for="productPrice">Preço</label>
-            <input type="number" id="productPrice" name="price" placeholder="Digite o preço" required />
+            <input type="text" id="productPrice" name="price" placeholder="Digite o preço" required />
+
 
             <label for="productDescription">Descrição</label>
             <textarea id="productDescription" name="description" placeholder="Descrição do produto" rows="3"></textarea>
